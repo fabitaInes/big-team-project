@@ -120,5 +120,5 @@ class PowerBiFunctions:
         return n
 
     def choose_columns(self, column_names):
-        result = self.df.loc[:,column_names]
+        result = self.df.loc[:, column_names]
         return result
