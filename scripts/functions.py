@@ -122,3 +122,66 @@ class PowerBiFunctions:
     def choose_columns(self, column_names):
         result = self.df.loc[:, column_names]
         return result
+    
+    def remove_top_rows(self):
+        result = self.df.iloc[3:]
+        
+    def remove_blank_rows(self, column_name):
+        unq_df_clean = unq_df.dropna(subset=unq_df.columns.difference(pd.Index([column_name])),how="any")
+        return unq_df_clean.head(10)
+        
+        
+    def remove_bottom_rows(self):
+        unq_df = self.df.drop_duplicates() 
+        return unq_df.shape
+    
+    def lowercase_to_uppercase(self,column_name):
+        valores = self.df.loc[:,column_name].tolist()
+        for x in valores:
+            x.upper()
+        return valores
+    
+    def data_type(self, column_name):
+        result = self.df.loc[:, column_name].dtypes
+        return result
+    
+    def count_rows(self, column_name):
+        rows = self.df.loc[:, column_name]
+        result = len(rows)
+        return result
+    
+    def rename(self, column_name, renombrado):
+        column = self.df.loc[:, column_name]
+        result = self.df.rename(columns={column: renombrado})
+        return result
+    
+    def convert_to_list(self, column_name):
+        result = self.df.loc[: column_name]
+        return result.tolist()
+    
+    
+    def length(self,column_name):
+        valores = self.df.loc[:,column_name].tolist()
+        for x in valores:
+            y = len(x)
+            result.append(x)
+        return result
+    
+    def json(self):
+        result = self.df.to_json('C:\Users\export.json')
+        return result
+    
+    def sumar_valores_columna(self, column_name):
+        valores = self.df.loc[:, column_name].tolist()
+        suma = 0
+        for x in valores:
+            suma = suma + x
+        return suma
+    
+    def valor_absoluto(self, column_name):
+        valores = self.df.loc[:, column_name].tolist()
+        result = []
+        for x in valores:
+            y = abs(x)
+            result.append(y)
+        return result
