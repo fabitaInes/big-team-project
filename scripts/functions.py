@@ -118,3 +118,7 @@ class PowerBiFunctions:
         result = pd.unique(self.df.loc[:, column_name])
         n = len(result)
         return n
+
+    def choose_columns(self, column_names):
+        result = self.df.loc[:,column_names]
+        return result
