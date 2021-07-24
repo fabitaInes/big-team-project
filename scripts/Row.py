@@ -28,7 +28,10 @@ class Row:
         result = self.df.iloc[number_rows:]
         return result
     
-    
+    def remove_bottom_rows(self, number_row):
+        result = self.df.drop(self.df.tail(number_rows).index).reset_index(drop=True)
+        return result
+        
     def remove_duplicates(self):
         unq_df = self.df.drop_duplicates() 
         return unq_df.shape
@@ -44,3 +47,9 @@ class Row:
         result = len(rows)
         return result
     
+    def reverse_rows(self):
+        result = self.df.iloc[::-1]
+        
+
+    
+   

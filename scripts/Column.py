@@ -21,9 +21,14 @@ class Column:
         return result
     
     
+    def number_character(self, column_name)
+        result = self.df[column_name].str.len()
+        return result
+    
+    
     def lowercase_to_uppercase(self,column_name):
         result = self.df.loc[:,column_name].tolist()
-        for x in valores:
+        for x in result:
             x.upper()
         return result
     
@@ -31,4 +36,9 @@ class Column:
         result = self.df.loc[:,column_name].tolist()
         for x in valores:
             x.lower()
+        return result
+    
+    
+    def position(self, column_name)
+        result = self.df.get_loc(column_name)
         return result
